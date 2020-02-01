@@ -1,0 +1,19 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #333;
+    color: #eee;
+    font: caption;
+    text-align: center;
+}
+
+canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 1280px !important;
+    object-fit: contain; /* <https://caniuse.com/#feat=object-fit> */
+}
