@@ -6,12 +6,14 @@ $(function(){
 
     // add to left character chat
     $('.js-left-add').on('click', function () {
-        updateJson('left');
+        // TODO: replace with chosen avatar
+        updateJson('avatars/blue-tenant.png');
     });
 
     // add to right character chat
     $('.js-right-add').on('click', function () {
-        updateJson('right');
+        // TODO: replace with chosen avatar
+        updateJson('avatars/link-cartoon-02.png');
     });
 
     $('.js-publish-btn').on('click', function(){

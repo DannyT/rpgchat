@@ -8,6 +8,7 @@ import BootScene from './scenes/BootScene';
 window.Phaser = Phaser;
 
 const config = {
+  backgroundColor: '#fff',
   type: Phaser.AUTO,
   width: constants.WIDTH,
   height: constants.HEIGHT,

@@ -1,0 +1,16 @@
+{
+    "characters" : [
+        {
+            "avatar" : "avatars/blue-tenant.png",
+            "name" : "Blue Tenant"
+        },
+        {
+            "avatar" : "avatars/link-cartoon-01.png",
+            "name" : "Moody Link"
+        },
+        {
+            "avatar" : "avatars/link-cartoon-02.png",
+            "name" : "Squiffy Link"
+        }
+    ]
+}

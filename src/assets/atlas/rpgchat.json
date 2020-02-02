@@ -1,0 +1,104 @@
+{
+	"textures": [
+		{
+			"image": "rpgchat.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 482,
+				"h": 253
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "avatars/link-cartoon-02.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 174,
+						"h": 200
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 174,
+						"h": 200
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 174,
+						"h": 200
+					}
+				},
+				{
+					"filename": "ui/yellow_button00.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 190,
+						"h": 49
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 190,
+						"h": 49
+					},
+					"frame": {
+						"x": 1,
+						"y": 203,
+						"w": 190,
+						"h": 49
+					}
+				},
+				{
+					"filename": "avatars/blue-tenant.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 118,
+						"h": 200
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 118,
+						"h": 200
+					},
+					"frame": {
+						"x": 177,
+						"y": 1,
+						"w": 118,
+						"h": 200
+					}
+				},
+				{
+					"filename": "avatars/link-cartoon-01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 200,
+						"h": 200
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 11,
+						"w": 184,
+						"h": 189
+					},
+					"frame": {
+						"x": 297,
+						"y": 1,
+						"w": 184,
+						"h": 189
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:f55093c1e4d80832f0a8a7e53fa950d6:97b39a39f94ca6d4949b4cb2054b76ad:9deb77c94978915254cf895e74cf381e$"
+	}
+}
