@@ -29,7 +29,10 @@ $(function(){
             success: function (data, textStatus, jqXHR) {
                 var json = JSON.stringify(data);
                 var id = data.uri.split("/").pop();
-                $('.js-copy-link').val(window.location.origin + '/#'+ id);
+                var link = window.location.origin + '/#'+ id;
+                $('.js-copy-link').attr("href", link);
+                $('.js-copy-link').text(link);
+                $('.js-preview-link').show();
             }
         });
     });
@@ -52,7 +55,13 @@ $(function(){
         $('.js-script').empty();
         var chat = templateJson.chat;
         for(var i = 0; i < chat.length; i++) {
+            // load avatars json
+            // find avatar label
+            // preview image...?
             $('.js-script').append('<p>' + chat[i][0] + ': ' + chat[i][1] + '</p>');
         }
     }
+
+    $('.js-preview-link').hide();
+    $('.js-add-text').focus();
 });
