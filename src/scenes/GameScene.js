@@ -44,6 +44,16 @@ class GameScene extends Phaser.Scene {
     this.startButton.setInteractive();
     this.startButton.on('pointerdown', (event) => this.startChat(event));
 
+    // THE END title
+    this.theEndText = this.make.text({
+      x: this.scale.width/2,
+      y: this.scale.height/2,
+      text: 'THE END',
+      style: textStyle
+    });
+    this.theEndText.setOrigin(0.5);
+    this.theEndText.setVisible(false);
+
     // create button
     this.createButton = this.add.image(this.scale.width/2-200, this.scale.height/2+100, 'atlas', 'ui/yellow_button00.png');
     this.createText = this.make.text({
@@ -195,6 +205,7 @@ class GameScene extends Phaser.Scene {
         duration: 300,
         onComplete: (tween, targets) => {
             this.children.remove(targets, true);
+            this.theEndText.setVisible(true);
             this.createButton.setVisible(true);
             this.createText.setVisible(true);
             this.replayButton.setVisible(true);
@@ -243,6 +254,7 @@ class GameScene extends Phaser.Scene {
   replayChat(e) {
     // refresh current page
     this.startChat();
+    this.theEndText.setVisible(false);
     this.createButton.setVisible(false);
     this.createText.setVisible(false);
     this.replayButton.setVisible(false);
