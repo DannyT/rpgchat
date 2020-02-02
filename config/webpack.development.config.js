@@ -90,6 +90,11 @@ module.exports = (env, options) => {
           use: 'raw-loader'
         },
         {
+          test: [/\.vert$/, /\.frag$/],
+          exclude: [nodeModules],
+          use: 'raw-loader'
+        },
+        {
           test: /\.css$/i,
           use: [
             {

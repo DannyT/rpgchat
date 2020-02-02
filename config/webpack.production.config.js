@@ -9,6 +9,7 @@ const {
   ghPagesAppName
 } = require('./paths');
 const TerserPlugin = require('terser-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const definePlugin = new webpack.DefinePlugin({
   WEBGL_RENDERER: true,
@@ -21,8 +22,19 @@ const definePlugin = new webpack.DefinePlugin({
 
 const htmlPlugin = new HtmlWebpackPlugin({
   template: './src/index.html',
-  filename: './index.html'
+  filename: './index.html',
+  excludeChunks: ['createApp']
 });
+
+const createHtmlPlugin = new HtmlWebpackPlugin({
+  template: 'src/create/index.html',
+  filename: 'create/index.html',
+  excludeChunks: ['app']
+});
+
+const copyWebpackPlugin = new CopyWebpackPlugin([
+  { from: './src/assets/images/clippy.svg', to: 'assets/images/clippy.svg' }
+]);
 
 const minimizePlugin = new TerserPlugin({
   extractComments: true,
@@ -41,6 +53,10 @@ const minimizePlugin = new TerserPlugin({
 module.exports = (env, options) => {
   return {
     mode: 'production',
+    entry: {
+      app: './src/index.js',
+      createApp: './src/create/create.js'
+    },
     output: {
       path: env.ghpages ? ghpages : dist,
       filename: '[name].bundle.js',
@@ -52,7 +68,7 @@ module.exports = (env, options) => {
         chunks: 'all'
       }
     },
-    plugins: [definePlugin, htmlPlugin, minimizePlugin],
+    plugins: [definePlugin, htmlPlugin, minimizePlugin, createHtmlPlugin, copyWebpackPlugin],
     module: {
       rules: [
         {
