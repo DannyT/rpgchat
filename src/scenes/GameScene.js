@@ -17,7 +17,6 @@ class GameScene extends Phaser.Scene {
 
   create() {
     this.chat = this.cache.json.get('script').chat;
-    this.chatIndex = 0;
     
     // Positions to present avatars
     this.avatarPositions = [
@@ -25,15 +24,59 @@ class GameScene extends Phaser.Scene {
       new Phaser.Math.Vector2(this.scale.width-150, this.scale.height-100)
      ];
 
-    // show button
+    const textStyle = {
+      align: 'center',
+      font: '24px "Courier New"',
+      // backgroundColor: '#ff00ff',
+      fill: 'black',
+      wordWrap: { width: this.maxWidth, useAdvancedWrap: true }
+    }
+
+    // start button
     this.startButton = this.add.image(this.scale.width/2, this.scale.height/2, 'atlas', 'ui/yellow_button00.png');
+    this.startText = this.make.text({
+        x: this.scale.width/2,
+        y: this.scale.height/2,
+        text: 'Start Chat',
+        style: textStyle
+    });
+    this.startText.setOrigin(0.5);
     this.startButton.setInteractive();
     this.startButton.on('pointerdown', (event) => this.startChat(event));
+
+    // create button
+    this.createButton = this.add.image(this.scale.width/2-200, this.scale.height/2+100, 'atlas', 'ui/yellow_button00.png');
+    this.createText = this.make.text({
+      x: this.scale.width/2-200,
+      y: this.scale.height/2+100,
+      text: 'Create Chat',
+      style: textStyle
+    });
+    this.createText.setOrigin(0.5);
+    this.createText.setVisible(false);
+    this.createButton.setInteractive();
+    this.createButton.on('pointerdown', (event) => this.createChat(event));
+    this.createButton.setVisible(false);
+
+    // replay button
+    this.replayButton = this.add.image(this.scale.width/2+200, this.scale.height/2+100, 'atlas', 'ui/yellow_button00.png');
+    this.replayText = this.make.text({
+      x: this.scale.width/2+200,
+      y: this.scale.height/2+100,
+      text: 'Replay Chat',
+      style: textStyle
+    });
+    this.replayText.setOrigin(0.5);
+    this.replayText.setVisible(false);
+    this.replayButton.setInteractive();
+    this.replayButton.on('pointerdown', (event) => this.replayChat(event));
+    this.replayButton.setVisible(false);
   }
 
   startChat(e) {
     this.startButton.setVisible(false);
-    this.conversationIndex = 0;
+    this.startText.setVisible(false);
+    this.chatIndex = 0;
     this.createAvatars();
     this.setCurrentSnippet();
     this.input.keyboard.on('keyup-SPACE', this.progressChat, this);
@@ -135,7 +178,7 @@ class GameScene extends Phaser.Scene {
   endConversation() {
     let i = 0;
     for(i=this.speechBubbles.length-1; i>=0; i--) { 
-        this.remove(this.speechBubbles[i], true);
+        this.children.remove(this.speechBubbles[i], true);
         this.speechBubbles.splice(i,1);
     }
     this.speechBubbles = [];
@@ -151,17 +194,20 @@ class GameScene extends Phaser.Scene {
         ease: 'Sine.easeOut',
         duration: 300,
         onComplete: (tween, targets) => {
-            this.remove(targets, true);
-            this.setVisible(false);
-            this.setActive(false);
+            this.children.remove(targets, true);
+            this.createButton.setVisible(true);
+            this.createText.setVisible(true);
+            this.replayButton.setVisible(true);
+            this.replayText.setVisible(true);
         }
     });        
     this.avatars = [];
 
     this.input.keyboard.off('keyup-SPACE', this.progressChat, this);
-    this.emit('endConversation');
+
   }
 
+  // TODO: Add branching dialogue... maybe. We can handle the conversation flow but the create UI will be a pig :/
   optionSelected(selectedOption) {
     if(selectedOption.hasOwnProperty('setVar')){
         this.setVars.push(selectedOption.setVar);
@@ -173,10 +219,34 @@ class GameScene extends Phaser.Scene {
             this.endConversation();
             return;
         }
-        this.conversationIndex = goto-1; // -1 because we immediately add one back on in progress chat
+        this.chatIndex = goto-1; // -1 because we immediately add one back on in progress chat
     }
     this.scene.input.keyboard.on('keyup-SPACE', this.progressChat, this);
     this.progressChat();
+  }
+
+  createChat(e) {
+    var url = window.location.origin + '/create';
+
+    var s = window.open(url, '_blank');
+
+    if (s && s.focus)
+    {
+        s.focus();
+    }
+    else if (!s)
+    {
+        window.location.href = url;
+    }
+  }
+
+  replayChat(e) {
+    // refresh current page
+    this.startChat();
+    this.createButton.setVisible(false);
+    this.createText.setVisible(false);
+    this.replayButton.setVisible(false);
+    this.replayText.setVisible(false);
   }
 
 }

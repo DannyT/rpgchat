@@ -1,7 +1,7 @@
 import './index.css';
 
 import Phaser from 'phaser';
-import { NinePatchPlugin } from '@koreez/phaser3-ninepatch';
+import { NinePatchPlugin, NinePatch } from '@koreez/phaser3-ninepatch';
 
 import constants from './config/constants';
 import BootScene from './scenes/BootScene';

@@ -34,6 +34,9 @@ class BootScene extends Phaser.Scene {
     this.load.atlas('atlas', atlas, atlasData);
 
     var id = window.location.hash.replace('#', '');
+    if(id == '') {
+      id = '12vequ';
+    }
     this.load.json('script', 'https://api.myjson.com/bins/' + id);
   }
 
