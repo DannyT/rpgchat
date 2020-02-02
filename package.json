@@ -60,6 +60,7 @@
     }
   },
   "dependencies": {
+    "@koreez/phaser3-ninepatch": "^2.0.2",
     "howler": "^2.1.2",
     "html-loader": "^0.5.5",
     "lodash": "^4.17.15",

@@ -1,6 +1,7 @@
 import './index.css';
 
 import Phaser from 'phaser';
+import { NinePatchPlugin } from '@koreez/phaser3-ninepatch';
 
 import constants from './config/constants';
 import BootScene from './scenes/BootScene';
@@ -18,6 +19,9 @@ const config = {
       gravity: { y: 200 },
       debug: false
     }
+  },
+  plugins: {
+    global: [{ key: 'NinePatchPlugin', plugin: NinePatchPlugin, start: true }]
   },
   scene: [BootScene]
 };

@@ -4,32 +4,11 @@
 			"image": "rpgchat.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 482,
-				"h": 253
+				"w": 222,
+				"h": 646
 			},
 			"scale": 1,
 			"frames": [
-				{
-					"filename": "avatars/link-cartoon-02.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 174,
-						"h": 200
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 174,
-						"h": 200
-					},
-					"frame": {
-						"x": 1,
-						"y": 1,
-						"w": 174,
-						"h": 200
-					}
-				},
 				{
 					"filename": "ui/yellow_button00.png",
 					"rotated": false,
@@ -46,30 +25,30 @@
 					},
 					"frame": {
 						"x": 1,
-						"y": 203,
+						"y": 1,
 						"w": 190,
 						"h": 49
 					}
 				},
 				{
-					"filename": "avatars/blue-tenant.png",
+					"filename": "ui/option-highlight.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
-						"w": 118,
-						"h": 200
+						"w": 28,
+						"h": 28
 					},
 					"spriteSourceSize": {
 						"x": 0,
 						"y": 0,
-						"w": 118,
-						"h": 200
+						"w": 28,
+						"h": 28
 					},
 					"frame": {
-						"x": 177,
+						"x": 193,
 						"y": 1,
-						"w": 118,
-						"h": 200
+						"w": 28,
+						"h": 28
 					}
 				},
 				{
@@ -87,10 +66,73 @@
 						"h": 189
 					},
 					"frame": {
-						"x": 297,
-						"y": 1,
+						"x": 1,
+						"y": 52,
 						"w": 184,
 						"h": 189
+					}
+				},
+				{
+					"filename": "avatars/link-cartoon-02.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 174,
+						"h": 200
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 174,
+						"h": 200
+					},
+					"frame": {
+						"x": 1,
+						"y": 243,
+						"w": 174,
+						"h": 200
+					}
+				},
+				{
+					"filename": "avatars/blue-tenant.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 118,
+						"h": 200
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 118,
+						"h": 200
+					},
+					"frame": {
+						"x": 1,
+						"y": 445,
+						"w": 118,
+						"h": 200
+					}
+				},
+				{
+					"filename": "ui/dialogue-box.png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 100,
+						"h": 100
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 100,
+						"h": 100
+					},
+					"frame": {
+						"x": 121,
+						"y": 445,
+						"w": 100,
+						"h": 100
 					}
 				}
 			]
@@ -99,6 +141,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:f55093c1e4d80832f0a8a7e53fa950d6:97b39a39f94ca6d4949b4cb2054b76ad:9deb77c94978915254cf895e74cf381e$"
+		"smartupdate": "$TexturePacker:SmartUpdate:91c1c5c299fd2d1abb06635afa1f9b95:1633a1aa927e6cd16868de586ace436d:9deb77c94978915254cf895e74cf381e$"
 	}
 }
